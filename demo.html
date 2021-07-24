@@ -9,10 +9,30 @@
     <script>
       //当前日期生成农历对象
       var date = Lunar.fromDate(new Date());
-      document.write(date.toFullString());
+      document.write(date.getSolar().toFullString());
       document.write('<br>');
       //转阳历
-      document.write(date.getSolar().toFullString());
+      //document.write(date.getSolar());
+      document.write(date.toFullString());
+      document.write('<br><br>');
+
+      // 百日
+      document.write('<p><b> 百日: </b></p>');
+      var date = Solar.fromDate(new Date(new Date().setDate(new Date().getDate() + 100)));
+      document.write(date.toFullString());
+      document.write('<br><br>');
+      // 百日轉農曆
+      document.write(date.getLunar().toFullString());
+      document.write('<br><br>');
+
+
+      // 對年
+      document.write('<p><b> 對年: </b></p>');
+      var date = Solar.fromDate(new Date(new Date().setFullYear(new Date().getFullYear() + 1)));
+      document.write(date.toFullString());
+      document.write('<br><br>');
+      // 對年轉農曆
+      document.write(date.getLunar().toFullString());
       document.write('<br><br>');
 
     </script>
