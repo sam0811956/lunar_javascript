@@ -197,7 +197,6 @@
           for(var i=0,j=festivals.length;i<j;i++){
             s += ' ('+festivals[i]+')';
           }
-          s += ' '+this.getXingZuo()+'座';
           return s;
         },
         next:function(days, onlyWorkday){
