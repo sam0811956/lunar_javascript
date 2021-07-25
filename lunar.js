@@ -182,7 +182,7 @@
           return [this._p.year,(this._p.month<10?'0':'')+this._p.month,(d<10?'0':'')+d].join('-');
         },
         toYmdHms:function(){
-          return this.toYmd()+' '+[(this._p.hour<10?'0':'')+this._p.hour,(this._p.minute<10?'0':'')+this._p.minute,(this._p.second<10?'0':'')+this._p.second].join(':');
+          return this.toYmd();
         },
         toString:function(){
           return this.toYmd();
@@ -1303,10 +1303,6 @@
           var s = this.toString();
           s += ' 星期'+this.getWeekInChinese();
           s += ' '+this.getYearInGanZhi()+'('+this.getYearShengXiao()+')年';
-          s += ' '+this.getMonthInGanZhi()+'('+this.getMonthShengXiao()+')月';
-          s += ' '+this.getDayInGanZhi()+'('+this.getDayShengXiao()+')日';
-          s += ' '+this.getTimeZhi()+'('+this.getTimeShengXiao()+')时';
-          s += ' 纳音['+this.getYearNaYin()+' '+this.getMonthNaYin()+' '+this.getDayNaYin()+' '+this.getTimeNaYin()+']';
           return s;
         },
         _buildNameAndIndex: function(name, index){
