@@ -5,32 +5,36 @@
     <title>lunar</title>
   </head>
   <body>
-    <script src="lunar.js"></script>
-    <script>
-      //
-      //var date = Solar.fromDate(new Date());
-      var date = Solar.fromYmd(2022,1,27);
-      document.write(date.toFullString());
-      //農曆
-      //document.write(date.getSolar());
-      document.write('<p><b> 農曆: </b></p>');
-      document.write(date.getLunar().toFullString());
+    <label for="start"> 請輸入國曆: </label>
+    <input type="date" id="dateInput" />
+    <button type="button" id="determineTime" onClick="window.location.reload();" > 查詢</button>
+<script src="lunar.js"></script>
+<script>
 
-      // 百日
-      document.write('<p><b> 百日: </b></p>');
-      var date = Solar.fromDate(new Date(new Date().setDate(new Date().getDate() + 100)));
-      document.write(date.toFullString());
-      // 百日轉農曆
-      document.write('<p><b> 百日農曆: </b></p>');
-      document.write(date.getLunar().toFullString());
+          var input =  document.getElementById("dateInput").value;
+          var date = Solar.fromDate(new Date(input));
+          //國曆
+          document.write('<p><b> 國曆: </b></p>');
+          document.write(date.toFullString());
+          //農曆
+          document.write('<p><b> 農曆: </b></p>');
+          document.write(date.getLunar().toFullString());
 
-      // 對年
-      document.write('<p><b> 對年: </b></p>');
-      var date = Solar.fromDate(new Date(new Date().setFullYear(new Date().getFullYear() + 1)));
-      document.write(date.toFullString());
-      // 對年轉農曆
-      document.write('<p><b> 對年農曆: </b></p>');
-      document.write(date.getLunar().toFullString());
+          // 百日
+          document.write('<p><b> 百日: </b></p>');
+          var date = Solar.fromDate(new Date(new Date().setDate(new Date(input).getDate() + 100)));
+          document.write(date.toFullString());
+          // 百日轉農曆
+          document.write('<p><b> 百日農曆: </b></p>');
+          document.write(date.getLunar().toFullString());
+
+          // 對年
+          document.write('<p><b> 對年: </b></p>');
+          var date = Solar.fromDate(new Date(new Date(input).setFullYear(new Date(input).getFullYear() + 1)));
+          document.write(date.toFullString());
+          // 對年轉農曆
+          document.write('<p><b> 對年農曆: </b></p>');
+          document.write(date.getLunar().toFullString());
 
     </script>
   </body>
