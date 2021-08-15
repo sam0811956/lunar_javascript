@@ -5,7 +5,7 @@
     <title>lunar</title>
   </head>
   <body>
-    <label for="start"> 請輸入農曆: </label>
+    <label for="start"> 請輸入國曆: </label>
     <input type="date" id="dateInput" />
     <button type="button" id="determineTime" onClick="window.location.reload();" > 查詢</button>
 <script src="lunar.js"></script>
@@ -24,35 +24,34 @@
               return date;
           }
           var input = document.getElementById("dateInput").value;
-          var input_year = new Date(input).getFullYear();
-          var input_month = new Date(input).getMonth() + 1;
-          var input_day = new Date(input).getDate();
-          var lunar_date = Lunar.fromYmd(input_year, input_month,input_day);
-          var solar_date = lunar_date.getSolar();
-          //農曆
-          document.write('<p><b> 查詢農曆: </b></p>');
-          document.write(lunar_date.toFullString());
-          //國曆
+          var solar_input = Solar.fromDate(new Date(input));
+          var lunar_input = Solar.fromDate(new Date(input)).getLunar();
+          var lunar_input_year = lunar_input.getYear();
+          var lunar_input_month = lunar_input.getMonth();
+          var lunar_input_date = lunar_input.getDay();
+          
+          //查詢國曆
           document.write('<p><b> 查詢國曆: </b></p>');
-          document.write(solar_date.toFullString());
+          document.write(solar_input.toFullString());
+          //查詢農曆
+          document.write('<p><b> 查詢農曆: </b></p>');
+          document.write(lunar_input.toFullString());
 
-          // 百日農曆
-          //var hund_lunar_date = Lunar.fromYmd(input_year, input_month,input_day + 100);
-          var hund_lunar_date = lunar_date.next(99); 
-          document.write('<p><b> 百日農曆: </b></p>');
-          document.write(hund_lunar_date.toFullString());
-         // // 百日國曆
+          // 百日國曆
+          var hund_lunar_date = lunar_input.next(99); 
           document.write('<p><b> 百日國曆: </b></p>');
           document.write(hund_lunar_date.getSolar().toFullString());
+          // 百日農曆
+          document.write('<p><b> 百日農曆: </b></p>');
+          document.write(hund_lunar_date.toFullString());
 
-          // 對年農曆
-          var nextyear_lunar_date = Lunar.fromYmd(input_year + 1, input_month,input_day);
-          var nextyear_solar_date = nextyear_lunar_date.getSolar();
+          // 對年國曆
+          var nextyear_lunar_date = Lunar.fromYmd(lunar_input_year + 1, lunar_input_month, lunar_input_date);
+          document.write('<p><b> 對年國曆: </b></p>');
+          document.write(nextyear_lunar_date.getSolar().toFullString());
+         // 對年農曆
           document.write('<p><b> 對年農曆: </b></p>');
           document.write(nextyear_lunar_date.toFullString());
-          // 對年國曆
-          document.write('<p><b> 對年國曆: </b></p>');
-          document.write(nextyear_solar_date.toFullString());
 
     </script>
   </body>
