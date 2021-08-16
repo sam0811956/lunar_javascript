@@ -193,10 +193,6 @@
           if(this.isLeapYear()){
             s += ' 闰年';
           }
-          var festivals = this.getFestivals();
-          for(var i=0,j=festivals.length;i<j;i++){
-            s += ' ('+festivals[i]+')';
-          }
           return s;
         },
         next:function(days, onlyWorkday){
