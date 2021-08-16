@@ -31,27 +31,36 @@
           var lunar_input_date = lunar_input.getDay();
           
           //查詢國曆
-          document.write('<p><b> 查詢國曆: </b></p>');
-          document.write(solar_input.toFullString());
+          document.write('<p>查詢國曆:');
+          document.write(solar_input.toString());
           //查詢農曆
-          document.write('<p><b> 查詢農曆: </b></p>');
+          document.write(' ,');
+          document.write(lunar_input.getYearInGanZhi() + '(' + lunar_input.getYearShengXiao()+ ')' +'年'  );
+          document.write(' 農曆: ');
           document.write(lunar_input.toFullString());
+          document.write('。');
 
           // 百日國曆
           var hund_lunar_date = lunar_input.next(99); 
-          document.write('<p><b> 百日國曆: </b></p>');
-          document.write(hund_lunar_date.getSolar().toFullString());
+          document.write('<p> 百日國曆:');
+          document.write(hund_lunar_date.getSolar().toString());
           // 百日農曆
-          document.write('<p><b> 百日農曆: </b></p>');
+          document.write(' ,');
+          document.write(hund_lunar_date.getYearInGanZhi() + '(' + hund_lunar_date.getYearShengXiao()+ ')' +'年'  );
+          document.write(' 農曆: ');
           document.write(hund_lunar_date.toFullString());
+          document.write('。');
 
           // 對年國曆
           var nextyear_lunar_date = Lunar.fromYmd(lunar_input_year + 1, lunar_input_month, lunar_input_date);
-          document.write('<p><b> 對年國曆: </b></p>');
-          document.write(nextyear_lunar_date.getSolar().toFullString());
+          document.write('<p> 對年國曆:');
+          document.write(nextyear_lunar_date.getSolar().toString());
          // 對年農曆
-          document.write('<p><b> 對年農曆: </b></p>');
+          document.write(' ,');
+          document.write(nextyear_lunar_date.getYearInGanZhi() + '(' + nextyear_lunar_date.getYearShengXiao()+ ')' +'年'  );
+          document.write(' 農曆: ');
           document.write(nextyear_lunar_date.toFullString());
+          document.write('。');
 
     </script>
   </body>
