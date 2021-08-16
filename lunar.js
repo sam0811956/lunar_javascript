@@ -1298,7 +1298,7 @@
         toFullString:function(){
           var s = this.toString();
           s += ' 星期'+this.getWeekInChinese();
-          s += ' '+this.getYearInGanZhi()+'('+this.getYearShengXiao()+')年';
+        //  s += ' '+this.getYearInGanZhi()+'('+this.getYearShengXiao()+')年';
           return s;
         },
         _buildNameAndIndex: function(name, index){
@@ -1637,7 +1637,7 @@
           return this.getYear()+'-'+this.getMonth();
         },
         toFullString:function(){
-          return this.getYear()+'年'+this.getMonth()+'月';
+          return this.getYear() +'年'+this.getMonth()+'月';
         }
       };
     };
