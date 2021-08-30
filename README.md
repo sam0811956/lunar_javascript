@@ -11,7 +11,7 @@
 * demo.html 的 input , button
 
 ## 示例
-![圖片](https://user-images.githubusercontent.com/32931993/127340778-c3c9a7b5-2125-45b4-a45f-cf61ca4d178a.png)
+![圖片](https://user-images.githubusercontent.com/32931993/131270937-bd33e817-5bc0-4e37-b6c7-6c12f8257833.png)
 
 ## 文档
 原作文檔至 [http://6tail.cn/calendar/api.html](http://6tail.cn/calendar/api.html "http://6tail.cn/calendar/api.html")
